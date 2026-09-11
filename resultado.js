@@ -1,3 +1,19 @@
+// ==========================================
+// REGISTRO DO SERVICE WORKER
+// ==========================================
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("sw.js")
+      .then(() => {
+        console.log("Service Worker registrado com sucesso.");
+      })
+      .catch((erro) => {
+        console.error("Erro ao registrar o Service Worker:", erro);
+      });
+  });
+}
 const parametros = new URLSearchParams(window.location.search);
 const cep = parametros.get("cep") || "";
 const cidadeInformada = parametros.get("cidade") || "";
